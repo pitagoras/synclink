@@ -1,7 +1,7 @@
 var cronJob = require('cron').CronJob;
  
 // 毎秒実行
-var cronTime = "* */2 * * * *";
+var cronTime = "* /2 * * * *";
  
 // 一度だけ実行したい場合、Dateオブジェクトで指定も可能
 // var cronTime = new Date();
