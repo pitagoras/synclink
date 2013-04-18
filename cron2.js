@@ -12,9 +12,9 @@ var cronTime = "*/1 * * * *";
 // once at the specified date.
 // var cronTime = new Date();
 
-var page = require('webpage').create(),
-    system = require('system'),
-    t, address;
+//var page = require('webpage').create(),
+//    system = require('system'),
+//    t, address;
 
 
 job = new cronJob({
@@ -28,26 +28,16 @@ job = new cronJob({
 	
 	
 	
-	
-	
-	
- t = Date.now();
-    address = "http://8.sync-play.appspot.com/user1-aghbc/3.3-kvsupdnew7.htm";
-    page.open(address, function (status) {
-        if (status !== 'success') {
-            console.log('FAIL to load the address');
-        } else {
-            t = Date.now() - t;
-            //console.log('Page title is ' + page.evaluate(function () {
-            //    return document.title;
-            //}));	
-            console.log('Loading time ' + t + ' msec');
-        }
-        //phantom.exit();
-		
-		
-		
-    });	
+phantom = require 'phantom'
+
+phantom.create (ph) ->
+  ph.createPage (page) ->
+    page.open "http://8.sync-play.appspot.com/user1-aghbc/3.3-kvsupdnew7.htm", (status) ->
+      console.log "opened syncplay ?", status
+      page.evaluate (-> document.title), (result) ->
+        console.log 'Page title is ' + result
+        ph.exit()
+
 
 
 	
