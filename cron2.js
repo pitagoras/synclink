@@ -27,16 +27,6 @@ job = new cronJob({
 	
 	
 	
-	
-phantom = require 'phantom'
-
-phantom.create (ph) ->
-  ph.createPage (page) ->
-    page.open "http://8.sync-play.appspot.com/user1-aghbc/3.3-kvsupdnew7.htm", (status) ->
-      console.log "opened syncplay ?", status
-      page.evaluate (-> document.title), (result) ->
-        console.log 'Page title is ' + result
-        ph.exit()
 
 
 
